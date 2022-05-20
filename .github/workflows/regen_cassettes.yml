@@ -37,6 +37,9 @@ jobs:
           name: cassettes
           path: cassettes/
 
+  # Note that the rerecord and upload workflows are split because the rerecord
+  # workflow uses the sunpy/sunpy repository, and the upload workflow uses
+  # the sunpy/sunpy-vcr-cassettes repository
   upload:
     runs-on: ubuntu-latest
     needs: rerecord
@@ -50,8 +53,17 @@ jobs:
           name: cassettes
           path: ./cassettes
 
+      - name: Check for modified cassettes
+        id: check_modified
+        run: |
+          python check_new_files.py
+          # Save exit code
+          ::set-output name={modified_cassettes}::{$?}
+
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
+        # Only push changes if cassettes are modified
+        if: ${{ steps.check_modified.outputs.modified_cassettes }}
         with:
           commit_message: Update cassettes
           file_pattern: cassettes/*
