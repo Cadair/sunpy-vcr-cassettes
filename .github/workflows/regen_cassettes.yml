@@ -57,9 +57,10 @@ jobs:
         id: check_modified
         run: |
           python -m pip install -r requirements.txt
+          set +e
           python check_new_files.py
-          # Save exit code
           export MODIFIED=$?
+          set -e
           echo "::set-output name=modified_cassettes::$MODIFIED"
 
       - name: Push changes

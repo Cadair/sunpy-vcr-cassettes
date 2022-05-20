@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import re
 import sys
@@ -33,4 +34,9 @@ if __name__ == '__main__':
 
     patch_set = PatchSet(diff)
     responses_modified = any(not only_dates_modified(patch) for patch in patch_set)
+    if responses_modified:
+        print("Detected modified cassettes")
+    else:
+        print("No modified cassettes")
+
     sys.exit(responses_modified)
