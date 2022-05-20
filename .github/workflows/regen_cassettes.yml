@@ -59,12 +59,13 @@ jobs:
           python -m pip install -r requirements.txt
           python check_new_files.py
           # Save exit code
-          ::set-output name={modified_cassettes}::{$?}
+          export MODIFIED=$?
+          echo "::set-output name=modified_cassettes::$MODIFIED"
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         # Only push changes if cassettes are modified
-        if: ${{ steps.check_modified.outputs.modified_cassettes }}
+        if: steps.check_modified.outputs.modified_cassettes == 1
         with:
           commit_message: Update cassettes
           file_pattern: cassettes/*
