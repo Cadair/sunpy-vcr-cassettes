@@ -35,7 +35,7 @@ interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Date:
-      - Fri, 20 May 2022 12:36:59 GMT
+      - Sat, 28 May 2022 11:56:13 GMT
       Location:
       - https://stereo.srl.caltech.edu/DATA/HET/Ahead/1minute/
       Server:
@@ -79,7 +79,7 @@ interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Date:
-      - Fri, 20 May 2022 12:36:59 GMT
+      - Sat, 28 May 2022 11:56:14 GMT
       Location:
       - https://izw1.caltech.edu/STEREO/DATA/HET/Ahead/1minute/
       Server:
@@ -577,7 +577,7 @@ interactions:
       Content-Type:
       - text/html;charset=ISO-8859-1
       Date:
-      - Fri, 20 May 2022 12:37:00 GMT
+      - Sat, 28 May 2022 11:56:14 GMT
       Server:
       - Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips mod_fcgid/2.3.9
         PHP/5.4.16 mod_wsgi/3.4 Python/2.7.5
