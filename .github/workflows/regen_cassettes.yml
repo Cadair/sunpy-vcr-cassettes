@@ -41,6 +41,8 @@ jobs:
 
       - name: Upload cassettes as artifacts
         uses: actions/upload-artifact@v3
+        # Always upload cassetes, even if some of the tests fail
+        if: always()
         with:
           name: cassettes
           path: cassettes/
